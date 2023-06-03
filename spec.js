@@ -51,7 +51,6 @@ var spec =
                         "required": "true",
                         "schema": {
                             "type": "string",
-                            "example": "ezTURIfT5ksOx2uIRWYSsADIMv15a1mFrFTPs4myGBA"
                         },
                     },      
                     {
