@@ -25,14 +25,49 @@ var spec =
                 operationId: "postDataClient",
                 consumes: ["multipart/form-data"],    // Loại dữ liệu gửi đi
                 produces: ["application/json"],       // Loại dữ liệu trả về
-                parameters: [               // Các tham số
+                parameters: [       
+                    {
+                        "in": "header",
+                        "name": "Accept",
+                        "required": "true",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        },
+                    },      
+                    {
+                        "in": "header",
+                        "name": "Content-Type",
+                        "required": "true",
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        },
+                    },      
+                    {
+                        "in": "header",
+                        "name": "App-Key",
+                        "description": "App Key (= API Key)",
+                        "required": "true",
+                        "schema": {
+                            "type": "string",
+                            "example": "ezTURIfT5ksOx2uIRWYSsADIMv15a1mFrFTPs4myGBA"
+                        },
+                    },      
+                    {
+                        "in": "header",
+                        "name": "User-Agent",
+                        "description": "User",
+                        "required": "true",
+                        "schema": {
+                            "type": "string",
+                            "example": "PDA"
+                        },
+                    },      
                     {
                         "in": "body",      // Tham số được gửi lên từ form
                         "name": "body",    // Tên tham số
                         "required": "true",    // Tham số là bắt buộc
-                        "schema": {
-                            "type": "string"   // Loại dữ liệu của tham số là chuỗi
-                        },
                         "description": "Các thông tin của 1 khách hàng thêm mới",
                         "schema": {
                             "$ref": "#/definitions/Client"
@@ -135,13 +170,13 @@ var spec =
         //     }
         // }
     },
-    securityDefinitions: {    // Thông tin về api key sử dụng để thực hiện request
-        api_key: {
-            type: "apiKey",      // Thuộc loại api key xác thực
-            name: "ezTURIfT5ksOx2uIRWYSsADIMv15a1mFrFTPs4myGBA",     // Tên trường chứa api key xác thực
-            in: "header",        // API key được để trong phần header của request
-        }
-    },
+    // securityDefinitions: {    // Thông tin về api key sử dụng để thực hiện request
+    //     api_key: {
+    //         type: "apiKey",      // Thuộc loại api key xác thực
+    //         name: "ezTURIfT5ksOx2uIRWYSsADIMv15a1mFrFTPs4myGBA",     // Tên trường chứa api key xác thực
+    //         in: "header",        // API key được để trong phần header của request
+    //     }
+    // },
     definitions: {
         Client: {                
             type: "object",         
