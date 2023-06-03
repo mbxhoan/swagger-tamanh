@@ -19,7 +19,7 @@ var spec =
     paths: {
         "/post-data-client": {    // Đường dẫn. Kết hợp với host và basePath sẽ thành localhost:3000/api/v1/admin/
             post: {        // Phương thức gửi request: get, post, put, delete
-                tags: ["admin"],
+                tags: ["client"],
                 summary: "Tạo dữ liệu khách hàng",
                 description: "Tạo dữ liệu khách hàng",
                 operationId: "postDataClient",
@@ -135,13 +135,13 @@ var spec =
         //     }
         // }
     },
-    // securityDefinitions: {    // Thông tin về api key sử dụng để thực hiện request
-    //     api_key: {
-    //         type: "apiKey",      // Thuộc loại api key xác thực
-    //         name: "api_key",     // Tên trường chứa api key xác thực
-    //         in: "header",        // API key được để trong phần header của request
-    //     }
-    // },
+    securityDefinitions: {    // Thông tin về api key sử dụng để thực hiện request
+        api_key: {
+            type: "apiKey",      // Thuộc loại api key xác thực
+            name: "ezTURIfT5ksOx2uIRWYSsADIMv15a1mFrFTPs4myGBA",     // Tên trường chứa api key xác thực
+            in: "header",        // API key được để trong phần header của request
+        }
+    },
     definitions: {
         Client: {                
             type: "object",         
@@ -213,7 +213,7 @@ var spec =
                             example: "TAMANH09020623052541HR71P" 
                         },
                         ref_id: {
-                            type: "string",
+                            type: "number",
                             example: 43993 
                         },
                         name: {
@@ -244,7 +244,7 @@ var spec =
                             type: "string",
                             example: ""   
                         },
-                        avater: {
+                        avatar: {
                             type: "string",
                             example: ""   
                         },

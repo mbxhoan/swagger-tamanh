@@ -12,10 +12,24 @@ window.onload = function() {
       SwaggerUIStandalonePreset
     ],
     plugins: [
-      SwaggerUIBundle.plugins.DownloadUrl
+      SwaggerUIBundle.plugins.DownloadUrl,
+      DisableTryItOutPlugin
     ],
-    layout: "StandaloneLayout"
+    layout: "StandaloneLayout",
+    operationsSorter: 'alpha',
   });
 
   //</editor-fold>
 };
+
+const DisableTryItOutPlugin = function() {
+  return {
+    statePlugins: {
+      spec: {
+        wrapSelectors: {
+          allowTryItOutFor: () => () => false
+        }
+      }
+    }
+  }
+}
